@@ -1,9 +1,7 @@
-from abc import ABC
-
 from games.BaseGames import BaseGames
 
 
-class CurrencyRoulette(BaseGames, ABC):
+class CurrencyRoulette(BaseGames):
     def currency_roulette_game(self):
         self.load_game()
         print("Thank you for choosing to play the currency roulette game. Unfortunately, Doron never gave me the second"

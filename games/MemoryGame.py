@@ -1,9 +1,7 @@
-from abc import ABC
-
 from games.BaseGames import BaseGames
 
 
-class MemoryGame(BaseGames, ABC):
+class MemoryGame(BaseGames):
 
     def __init__(self, name, *super_params):
         self.name = name

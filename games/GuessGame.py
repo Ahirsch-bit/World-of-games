@@ -1,9 +1,7 @@
-from abc import ABC
-
 from games.BaseGames import BaseGames
 
 
-class GuessGame(BaseGames, ABC):
+class GuessGame(BaseGames):
     def guess_game(self):
         self.load_game()
         print("Thank you for choosing to play the guess game. Unfortunately, Doron never gave me the second"
