@@ -2,11 +2,6 @@ from games.BaseGames import BaseGames
 
 
 class MemoryGame(BaseGames):
-
-    def __init__(self, name, *super_params):
-        self.name = name
-        super().__init__(name, *super_params)
-
     def memory_game(self):
         self.load_game()
         print("Thank you for choosing to play the memory game. Unfortunately, Doron never gave me the second"
