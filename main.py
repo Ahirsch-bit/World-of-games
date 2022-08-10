@@ -6,7 +6,7 @@ from setup.Live import Setup, load_game
 game = Setup()
 game.welcome()
 
-game_choice = load_game().lower()
+game_choice = load_game()
 
 while game_choice != 'end':
     match game_choice:
@@ -18,6 +18,6 @@ while game_choice != 'end':
             CurrencyRoulette(game.name).currency_roulette_game()
         case _:
             print("This is not a valid option. Please choose an option between 1 and 3. ")
-    game_choice = load_game().lower()
+    game_choice = load_game()
 
 game.goodbye()
