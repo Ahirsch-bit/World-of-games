@@ -1,3 +1,6 @@
+from abc import ABC
+
+
 def check_validity(x):
     if not x.isdigit():
         return False
@@ -9,8 +12,8 @@ def check_validity(x):
             return True
 
 
-class BaseGames:
-
+class BaseGames(ABC):
+    # In order to avoid making an instance of "base games", I have made the class abstract.
     def __init__(self, name):
         self.name = name
         self.difficulty = input("Please choose game difficulty from 1 to 5: ")
@@ -19,6 +22,7 @@ class BaseGames:
             self.difficulty = input("The options are only between 1 and 5. This should not be that hard. Please "
                                     "choose a number between 1 and 5.")
             is_valid = check_validity(self.difficulty)
+        super(BaseGames, self).__init__()
 
     def load_game(self):
         print(f"Thank you for choosing to play {self.__class__.__name__}. You are playing with difficulty "
