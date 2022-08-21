@@ -1,3 +1,4 @@
+import time
 from abc import ABC
 
 
@@ -28,6 +29,13 @@ class BaseGames(ABC):
         print(f"Thank you for choosing to play {self.__class__.__name__}. You are playing with difficulty "
               f"level {self.difficulty}.")
 
+    def check_results(self, game):
+        if game:
+            print("Wow! You are correct. That was amazing!")
+        else:
+            print("Too bad. Better luck next time!")
+
     def end_game(self):
         print(f"That was fun, {self.name}. Let's do this again sometime.")
         print("You will now be sent back to the main screen.")
+        time.sleep(2)
