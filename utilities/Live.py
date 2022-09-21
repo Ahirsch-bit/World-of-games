@@ -19,10 +19,20 @@ def load_game():
 class Setup:
 
     def __init__(self):
-        self.name = input("Please enter your name.")
+        self.name = input("Please enter your name.").strip()
 
-    def welcome(self):
+    def welcome(self, score):
         print(f"Hi {self.name}, and welcome to World of Games (WoG)! Here you can find many cool games to play.")
+        if score == 0:
+            print("It looks like this is your first time playing with us. I hope you enjoy it!")
+        else:
+            print(f"It's great to have you back! Your current all time score is {score}")
 
-    def goodbye(self):
-        print(f"Thank you for playing with us, {self.name}. I hope to see you again some time.")
+    def goodbye(self, score_initial, score_final):
+        if score_initial == 0:
+            print("I can see that you didn't earn any points this time. "
+                  "Since we really enjoyed playing with you, please take 3 points for your troubles.")
+        print(
+            f"During this session you accrued {score_initial} points. This will be added to your previous score "
+            f"of {score_final}. "
+            f"Thank you for playing with us, {self.name}. I hope to see you again some time.")

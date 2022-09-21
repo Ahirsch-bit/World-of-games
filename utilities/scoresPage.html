@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<title>WoG High Scores</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    body {
+        background-color: white;
+        font-family: cursive;
+    }
+
+    .glow {
+        font-size: 80px;
+        color: #fff;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #9fc93a, 0 0 40px #9fc93a, 0 0 50px #9fc93a, 0 0 60px #e60073, 0 0 70px #9fc93a;
+        }
+
+        to {
+            text-shadow: 0 0 20px #fff, 0 0 30px #4d96db, 0 0 40px #4d96db, 0 0 50px #4d96db, 0 0 60px #4d96db, 0 0 70px #4d96db, 0 0 80px #4d96db;
+        }
+    }
+</style>
+
+<body onload="loadDoc();">
+
+    <div class="w3-container">
+        <div class="w3-container w3-black">
+            <h2 class="glow">High Scores</h2>
+        </div>
+        <p>Check out the all time high scores for World of Games!</p>
+        <div class="w3-container"></div>
+        <ul class="w3-ul w3-card-4" id="scoreboard"></ul>
+    </div>
+    <script>
+        function loadDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
+            xmlhttp.open("GET", "http://localhost:4000/list", false);
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
+            xmlhttp.send();
+            var jsonData = JSON.parse(xmlhttp.responseText);
+            const keys = Object.keys(jsonData);
+            var out = '';
+            for (let i = 0; i < keys.length; i++) {
+                const key = keys[i];
+                out += '<li class="w3-bar">'
+                out += '<div class="w3-bar-item">'
+                out += '<span class="w3-large">' + key + '</span><br></br>'
+                out += '<span>' + jsonData[key] + '</span>'
+                out += '</div></li>'
+            }
+            document.getElementById("scoreboard").innerHTML = out;
+        }
+        function callbackFunction(xmlhttp) {
+            //alert(xmlhttp.responseXML);
+        }
+
+    </script>
+</body>
+
+</html>

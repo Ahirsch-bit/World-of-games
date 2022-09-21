@@ -30,7 +30,7 @@ class MemoryGame(BaseGames):
         print("\r", end="")
         user_list = get_list_from_user()
         self.check_results(is_list_equal(gen_list, user_list))
-        self.end_game()
+        return self.end_game()
 
     def generate_sequence(self):
         return random.sample(range(1, 100), int(self.difficulty))

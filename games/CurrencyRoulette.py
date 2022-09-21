@@ -11,7 +11,7 @@ class CurrencyRoulette(BaseGames):
         interval = self.get_money_interval(usd_amount)
         guess = self.get_guess_from_user(usd_amount, interval)
         self.check_results(guess)
-        self.end_game()
+        return self.end_game()
 
     def get_money_interval(self, num):
         c = CurrencyRates()

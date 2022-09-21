@@ -29,7 +29,7 @@ class GuessGame(BaseGames):
         guess = get_guess_from_user(num)
         compare = compare_results(num, guess)
         self.check_results(compare)
-        self.end_game()
+        return self.end_game()
 
     def generate_number(self):
         return random.randint(1, int(self.difficulty))
